@@ -75,5 +75,5 @@ async def set_presence():
                 )
             )
     else:
-        await client.change_presence(status=discord.Status.online)
+        await client.change_presence(status=discord.Status.online, activity=None)
 client.run(TOKEN)
