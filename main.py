@@ -77,5 +77,5 @@ async def set_presence():
     else:
         await client.change_presence(status=discord.Status.online, activity=None)
         print("No song playing")
-        song = None
+        last_song = None
 client.run(TOKEN)
