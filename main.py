@@ -40,7 +40,7 @@ async def on_ready():
     set_presence.start()
 
 
-@tasks.loop(seconds=3)
+@tasks.loop(seconds=1)
 async def set_presence():
     global last_song
     song = network.get_user(lastfm_config["lastfm_username"]).get_now_playing()
@@ -76,6 +76,7 @@ async def set_presence():
             )
     else:
         await client.change_presence(status=discord.Status.online, activity=None)
-        print("No song playing")
+        if last_song != None:
+            print("No song playing")
         last_song = None
 client.run(TOKEN)
